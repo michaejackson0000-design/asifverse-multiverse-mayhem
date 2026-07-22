@@ -4,7 +4,7 @@
 
 config/name="Asifverse: Multiverse Mayhem"
 config/description="A fast-paced, original arcade game built for Godot 4."
-run/main_scene="res://scenes/ui/splash_screen.tscn"
+run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
