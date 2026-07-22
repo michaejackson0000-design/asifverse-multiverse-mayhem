@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://splashscreen"]
+[gd_scene load_steps=3 format=3 uid="uid://splashscreen"]
 
 [ext_resource type="Script" path="res://scenes/ui/splash_screen.gd" id="1"]
+[ext_resource type="Shader" path="res://assets/shaders/animated_background.shader" id="2"]
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = ExtResource(2)
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -11,28 +15,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource(1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.04, 0.06, 0.16, 1)
+material = SubResource(3)
 
-[node name="Label" type="Label" parent="."]
+[node name="LogoPanel" type="ColorRect" parent="."]
 layout_mode = 0
-anchors_preset = 8
+anchor_left = 0.2
+anchor_top = 0.35
+anchor_right = 0.8
+anchor_bottom = 0.6
+color = Color(0.02, 0.04, 0.14, 0.9)
+
+[node name="TitleLabel" type="Label" parent="LogoPanel"]
+layout_mode = 0
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -280.0
+offset_top = 20.0
+offset_right = 280.0
+offset_bottom = 0.0
+text = "ASIFVERSE"
+theme_override_font_sizes/font_size = 58
+theme_override_colors/font_color = Color(0.9, 0.7, 1.0)
+horizontal_alignment = 1
+
+[node name="Tagline" type="Label" parent="LogoPanel"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -256.0
-offset_top = -112.0
-offset_right = 256.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 42
-text = "ASIFVERSE\nMULTIVERSE MAYHEM"
+offset_left = -260.0
+offset_top = 0.0
+offset_right = 260.0
+offset_bottom = -20.0
+text = "Multiverse Mayhem" 
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.6, 0.9, 1.0)
 horizontal_alignment = 1
