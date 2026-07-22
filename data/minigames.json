@@ -1,0 +1,10 @@
+{
+  "minigames": [
+    {"id": "lava_escape", "name": "Lava Escape", "description": "Dash through the molten floor without touching the heat.", "duration": 4.0},
+    {"id": "space_dodge", "name": "Space Dodge", "description": "Avoid the incoming asteroids and stay alive.", "duration": 5.0},
+    {"id": "battery_charge", "name": "Battery Charge", "description": "Time your charges to keep the core powered.", "duration": 4.0},
+    {"id": "robot_repair", "name": "Robot Repair", "description": "Repair the wiring before the timer runs out.", "duration": 5.0},
+    {"id": "treasure_hunt", "name": "Treasure Hunt", "description": "Collect glowing relics before they vanish.", "duration": 4.0},
+    {"id": "alien_defense", "name": "Alien Defense", "description": "Repel the invaders with rapid precision.", "duration": 5.0}
+  ]
+}

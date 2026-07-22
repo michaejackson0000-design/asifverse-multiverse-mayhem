@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=1 format=3]
+
+[ext_resource type="Script" path="res://scripts/player/PlayerStats.gd" id="1_1w3h4"]
+
+[resource]
+script = ExtResource("res://scripts/player/PlayerStats.gd")
+lives = 3
+score = 0
+combo = 0
+streak = 0
+multiplier = 1
+difficulty_level = 1
+current_world = "Neon Rift"
+unlocked_characters = PackedStringArray("Rin")
+achievements = PackedStringArray()

@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; but some settings can be changed here.
+
+config/name="Asifverse: Multiverse Mayhem"
+config/description="A fast-paced, original arcade game built for Godot 4."
+run/main_scene="res://scenes/ui/splash_screen.tscn"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.svg"
+
+[autoload]
+GameManager="*res://autoload/GameManager.gd"
+SceneManager="*res://autoload/SceneManager.gd"
+AudioManager="*res://autoload/AudioManager.gd"
+SaveManager="*res://autoload/SaveManager.gd"
+ScoreManager="*res://autoload/ScoreManager.gd"
+SettingsManager="*res://autoload/SettingsManager.gd"
+AchievementManager="*res://autoload/AchievementManager.gd"
+MiniGameManager="*res://autoload/MiniGameManager.gd"
+InputManager="*res://autoload/InputManager.gd"
+EffectsManager="*res://autoload/EffectsManager.gd"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
+[rendering]
+textures/canvas_textures/default_texture_filter=0
