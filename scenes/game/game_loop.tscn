@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game/game_loop.gd" id="1"]
 
 [node name="GameLoop" type="Node2D"]
-script = ExtResource("res://scenes/game/game_loop.gd")
+script = ExtResource(1)
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1280.0
