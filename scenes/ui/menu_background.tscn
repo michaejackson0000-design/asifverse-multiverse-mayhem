@@ -1,4 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://menubackground"]
+[gd_scene load_steps=3 format=3 uid="uid://menubackground"]
+
+[ext_resource type="Shader" path="res://assets/shaders/animated_background.gdshader" id="1"]
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = ExtResource("1")
 
 [node name="MenuBackground" type="Control"]
 layout_mode = 3
@@ -15,11 +20,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-material = SubResource(1)
-
-[sub_resource type="ShaderMaterial" id="1"]
-shader = SubResource(2)
-
-[sub_resource type="Shader" id="2"]
-shader_type = "canvas_item"
-script = ExtResource("res://assets/shaders/animated_background.shader")
+material = SubResource("2")

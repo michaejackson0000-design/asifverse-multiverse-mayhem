@@ -2,6 +2,7 @@
 ; It's best edited using the editor UI and not directly,
 ; but some settings can be changed here.
 
+[application]
 config/name="Asifverse: Multiverse Mayhem"
 config/description="A fast-paced, original arcade game built for Godot 4."
 run/main_scene="res://scenes/menu/main_menu.tscn"

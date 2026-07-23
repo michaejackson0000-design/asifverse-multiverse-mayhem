@@ -1,53 +1,35 @@
 extends Node2D
 
-@onready var roononlnbnbnbLabel = $HUD/RbuLdLabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onready var combo_label: Label = $Rbu/ComboLdbabel
-@onbeady var scere_label: Label = $HUD/ScoreLabel
-@onrro nvamobbeltlxu = bRLel %@%oel: LaSeLabe
-@onrro nvamobbelt xu = bRLel %@%oel: LaSeLabe
-@onrro nvamobbeltoxu = bRLel %@%oel: LaSeLabe
-@onrrovnamlUbv%atDx = Bss R % %n
+var current_minigame: Node2D = null
 
-func _on_score_changed(value: int) -> void:
-    _update_hud()
-
-func _on_combo_changed(combo: int, multiplier: int) -> void:
-    _update_hud()
-
-func _update_hud() -> void:
-ooooscorellbb...text = "Score:t%t" % ScoreMoragert"core
-    co%boolebel.rtxt = eCombo %dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.rtmtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.r mtlti liCr]dcx%d"o%%[ScoreManager.combo,bScoreMelag.r.mtlti liCr]dcx%d"o%m[ScoreManager.combo,bScoreMelag.remtlti liCr]%d x%d" % [ScoreManager.combo, ScoreManager.multiplier]
+func _ready() -> void:
+    GameManager.start_game()
+    _start_minigame()
 
 func _start_minigame() -> void:
+    if current_minigame:
+        current_minigame.queue_free()
+        current_minigame = null
+
     var data = MiniGameManager.get_random_minigame()
     if data.is_empty():
         return
 
-    if current_minigame:
-        current_minigame.queue_free()
-
     var script_path = "res://scripts/minigames/%s.gd" % data.id
-    var script = load(script_path)
-    if script:
-        current_minigame = Node2D.new()
-        current_minigame.name = data.name
-        current_minigame.set_script(script)
-        add_child(current_minigame)
-        current_minigame.completed.connect(_on_minigame_completed)
-        current_minigame.failed.connect(_on_minigame_failed)
-    else:
+    var script: Script = load(script_path)
+    if script == null:
         push_warning("Could not load minigame script: %s" % script_path)
+        return
+
+    current_minigame = Node2D.new()
+    current_minigame.name = data.name
+    current_minigame.set_script(script)
+    add_child(current_minigame)
+
+    if current_minigame.has_signal("completed"):
+        current_minigame.completed.connect(_on_minigame_completed)
+    if current_minigame.has_signal("failed"):
+        current_minigame.failed.connect(_on_minigame_failed)
 
 func _on_minigame_completed() -> void:
     ScoreManager.add_score(100)

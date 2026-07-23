@@ -13,14 +13,15 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	print("Play button pressed")
-	# TODO: Change to your game scene
-	# get_tree().change_scene_to_file("res://scenes/game/game.tscn")
+	SceneManager.change_scene("res://scenes/game/game_loop.tscn")
 
 func _on_settings_pressed() -> void:
 	print("Settings button pressed")
+	SceneManager.change_scene("res://scenes/ui/settings_menu.tscn")
 
 func _on_credits_pressed() -> void:
 	print("Credits button pressed")
+	SceneManager.change_scene("res://scenes/ui/credits_menu.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
